@@ -174,3 +174,17 @@ nav a.ativo {
         font-size: 28px;
     }
 }
+
+/* CARDAPIO */
+
+.cardapio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.cardapio img {
+    max-width: 100%;
+    height: auto;
+}
