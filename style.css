@@ -174,60 +174,100 @@ nav a.ativo {
         font-size: 28px;
     }
 
-    
 }
 
-/* CARDÁPIO */
+.banner {
+    padding-top: 0;
+    margin-top: 0;
+}
 
-.cardapio {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
+.conteiner-duplo {
+    display: flex;
+    align-items: stretch;
     width: 100%;
-    box-sizing: border-box;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto
+    min-height: 80vh;
+    margin: 0;
+    padding: 0;
 }
-
-.cardapio-item {
+ 
+.conteiner-duplo > .texto-sobre {
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
-    width: 100%;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 40px 20px;
 }
 
-.cardapio img {
+.imagem-lanche {
+    width: 50%;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+ 
+.conteiner-duplo h1 {
+    margin: 0;
+}
+ 
+.imagem-lanche,
+.imagem-lanche a {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+ 
+.imagem-lanche img {
+    display: block;
     width: 100%;
-    height: 200px;
-    max-width: 220px;
+    height: 100%;
     object-fit: cover;
+    margin: 0;
 }
 
-/* AJUSTE DE IMAGEM ESPECÍFICO DO CARDÁPIO PARA O CELULAR*/
-
-@media (max-width: 768px) {
-    .cardapio {
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        gap: 16px;
-        padding: 15px 24px;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .cardapio::-webkit-scrollbar {
-        display: none;
-    }
-
-    .cardapio-item {
-        flex: 0 0 65%;
-    }
-
-    .cardapio-item img {
-        max-width: 100%;
-        height: 180px;
-    }
+ .texto-sobre {
+    flex: 1;
+    
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 25px;
+    color: white;
+}
+ 
+.texto-sobre h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 110px;
+    margin: 0;
+    color: transparent;
+    -webkit-text-stroke: 2px white;
+}
+ 
+.texto-sobre .horarios {
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 1.5;
+    margin: 0;
+}
+ 
+.texto-sobre .frase {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 700;
+    max-width: 600px;
+    margin: 0;
+}
+ 
+.texto-sobre .botao-endereco {
+    display: inline-block;
+    padding: 22px 50px;
+    border: 2px solid white;
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+    font-size: 28px;
+    line-height: 1.3;
 }
