@@ -285,6 +285,10 @@ nav a.ativo {
     margin: 0 auto
 }
 
+.cardapio h5 {
+    text-align: center;
+}
+
 .cardapio-item {
     display: flex;
     flex-direction: column;
