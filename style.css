@@ -304,7 +304,7 @@ nav a.ativo {
     object-fit: cover;
 }
 
-/* AJUSTE DE IMAGEM ESPECÍFICO DO CARDÁPIO PARA O CELULAR*/
+/* AJUSTE DE IMAGEM ESPECÍFICO DO CARDÁPIO PARA O CELULAR */
 
 @media (max-width: 768px) {
     .cardapio {
@@ -329,4 +329,29 @@ nav a.ativo {
         max-width: 100%;
         height: 180px;
     }
+}
+
+/* ANIMAÇÕES */
+
+.menu a {
+    position: relative;
+    text-decoration: none;
+    color: #ffffff;
+    padding-bottom: 8px;
+}
+
+.menu a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background-color: #ffca45;
+    transition: width 0.3s ease;
+}
+
+.menu a:hover::after{
+    width: 100%;
 }
