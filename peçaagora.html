@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIP Lanches | Entrar ou Cadastrar</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+        body {
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(160deg, #2a0000, #7a1018);
+            color: #f4e6da;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+ 
+        .caixa {
+            width: 100%;
+            max-width: 460px;
+            background: rgba(20, 0, 0, 0.85);
+            border: 1px solid #ffcf58;
+            border-radius: 14px;
+            padding: 28px 24px;
+        }
+ 
+        .caixa h1 {
+            color: #ffcf58;
+            text-align: center;
+            font-size: 26px;
+            margin-bottom: 6px;
+        }
+ 
+        .caixa .sub {
+            text-align: center;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+ 
+        .abas { display: flex; margin-bottom: 20px; }
+ 
+        .abas button {
+            flex: 1;
+            padding: 12px;
+            background: transparent;
+            color: #f4e6da;
+            border: none;
+            border-bottom: 2px solid #5a2a2a;
+            font-size: 16px;
+            cursor: pointer;
+        }
+ 
+        .abas button.ativa {
+            color: #ffcf58;
+            border-bottom-color: #ffcf58;
+            font-weight: bold;
+        }
+ 
+        form { display: none; }
+        form.visivel { display: block; }
+ 
+        label {
+            display: block;
+            font-size: 13px;
+            margin: 12px 0 4px;
+        }
+ 
+        input {
+            width: 100%;
+            padding: 11px;
+            border-radius: 8px;
+            border: 1px solid #5a2a2a;
+            background: #fff7ee;
+            color: #222;
+            font-size: 15px;
+        }
+ 
+        input:focus { outline: 2px solid #ffcf58; }
+ 
+        .linha { display: flex; gap: 10px; }
+        .linha > div { flex: 1; }
+        .linha > .pequeno { flex: 0 0 90px; }
+ 
+        .titulo-secao {
+            color: #ffcf58;
+            margin: 22px 0 4px;
+            font-size: 16px;
+            border-top: 1px solid #5a2a2a;
+            padding-top: 16px;
+        }
+ 
+        .botao {
+            width: 100%;
+            margin-top: 22px;
+            padding: 14px;
+            border: none;
+            border-radius: 30px;
+            background: #ffcf58;
+            color: #2a0000;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+ 
+        .botao:hover { background: #ffd978; }
+ 
+        .mensagem {
+            margin-top: 14px;
+            text-align: center;
+            font-size: 14px;
+            min-height: 18px;
+            color: #ff9d9d;
+        }
+ 
+        .voltar {
+            display: block;
+            text-align: center;
+            margin-top: 16px;
+            color: #f4e6da;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+ 
+<div class="caixa">
+    <h1>VIP Lanches</h1>
+    <p class="sub">Entre ou crie sua conta para fazer o pedido</p>
+ 
+    <div class="abas">
+        <button type="button" id="aba-login" class="ativa">Entrar</button>
+        <button type="button" id="aba-cadastro">Cadastrar</button>
+    </div>
+ 
+    <!-- LOGIN -->
+    <form id="form-login" class="visivel">
+        <label for="login-id">Telefone ou e-mail</label>
+        <input type="text" id="login-id" required>
+ 
+        <label for="login-senha">Senha</label>
+        <input type="password" id="login-senha" required>
+ 
+        <button type="submit" class="botao">ENTRAR</button>
+    </form>
+ 
+    <!-- CADASTRO -->
+    <form id="form-cadastro">
+        <label for="nome">Nome completo</label>
+        <input type="text" id="nome" required>
+ 
+        <label for="telefone">Telefone (WhatsApp)</label>
+        <input type="tel" id="telefone" placeholder="(11) 99999-9999" maxlength="15" required>
+ 
+        <label for="email">E-mail</label>
+        <input type="email" id="email" required>
+ 
+        <label for="senha">Senha (mínimo 6 caracteres)</label>
+        <input type="password" id="senha" minlength="6" required>
+ 
+        <h2 class="titulo-secao">Endereço de entrega</h2>
+ 
+        <label for="cep">CEP</label>
+        <input type="text" id="cep" placeholder="00000-000" maxlength="9" required>
+ 
+        <label for="rua">Rua</label>
+        <input type="text" id="rua" required>
+ 
+        <div class="linha">
+            <div class="pequeno">
+                <label for="numero">Número</label>
+                <input type="text" id="numero" required>
+            </div>
+            <div>
+                <label for="bairro">Bairro</label>
+                <input type="text" id="bairro" required>
+            </div>
+        </div>
+ 
+        <div class="linha">
+            <div>
+                <label for="cidade">Cidade</label>
+                <input type="text" id="cidade" required>
+            </div>
+            <div class="pequeno">
+                <label for="uf">UF</label>
+                <input type="text" id="uf" maxlength="2" required>
+            </div>
+        </div>
+ 
+        <label for="complemento">Complemento / ponto de referência</label>
+        <input type="text" id="complemento">
+ 
+        <button type="submit" class="botao">CRIAR CONTA E ESCOLHER PEDIDO</button>
+    </form>
+ 
+    <p class="mensagem" id="mensagem"></p>
+    <a href="viplanche.html" class="voltar">&larr; Voltar para o início</a>
+</div>
+ 
+<script>
+    // Para onde o cliente vai depois de entrar/cadastrar
+    var PAGINA_CARDAPIO = "cardapio.html";
+ 
+    var abaLogin = document.getElementById("aba-login");
+    var abaCadastro = document.getElementById("aba-cadastro");
+    var formLogin = document.getElementById("form-login");
+    var formCadastro = document.getElementById("form-cadastro");
+    var mensagem = document.getElementById("mensagem");
+ 
+    function mostrar(qual) {
+        var login = qual === "login";
+        abaLogin.classList.toggle("ativa", login);
+        abaCadastro.classList.toggle("ativa", !login);
+        formLogin.classList.toggle("visivel", login);
+        formCadastro.classList.toggle("visivel", !login);
+        mensagem.textContent = "";
+    }
+ 
+    abaLogin.onclick = function () { mostrar("login"); };
+    abaCadastro.onclick = function () { mostrar("cadastro"); };
+ 
+    // Só números
+    function soNumeros(v) { return v.replace(/\D/g, ""); }
+ 
+    // Máscara do telefone: (11) 99999-9999
+    document.getElementById("telefone").addEventListener("input", function () {
+        var n = soNumeros(this.value).slice(0, 11);
+        var t = n;
+        if (n.length > 10) t = "(" + n.slice(0, 2) + ") " + n.slice(2, 7) + "-" + n.slice(7);
+        else if (n.length > 6) t = "(" + n.slice(0, 2) + ") " + n.slice(2, 6) + "-" + n.slice(6);
+        else if (n.length > 2) t = "(" + n.slice(0, 2) + ") " + n.slice(2);
+        this.value = t;
+    });
+ 
+    // Máscara + busca automática do CEP (ViaCEP)
+    var campoCep = document.getElementById("cep");
+    campoCep.addEventListener("input", function () {
+        var n = soNumeros(this.value).slice(0, 8);
+        this.value = n.length > 5 ? n.slice(0, 5) + "-" + n.slice(5) : n;
+ 
+        if (n.length === 8) {
+            fetch("https://viacep.com.br/ws/" + n + "/json/")
+                .then(function (r) { return r.json(); })
+                .then(function (d) {
+                    if (d.erro) return;
+                    document.getElementById("rua").value = d.logradouro || "";
+                    document.getElementById("bairro").value = d.bairro || "";
+                    document.getElementById("cidade").value = d.localidade || "";
+                    document.getElementById("uf").value = d.uf || "";
+                    document.getElementById("numero").focus();
+                })
+                .catch(function () { /* sem internet: preenche na mão */ });
+        }
+    });
+ 
+    function lerUsuarios() {
+        try { return JSON.parse(localStorage.getItem("usuarios")) || []; }
+        catch (e) { return []; }
+    }
+ 
+    // CADASTRO
+    formCadastro.addEventListener("submit", function (e) {
+        e.preventDefault();
+ 
+        var usuario = {
+            nome: document.getElementById("nome").value.trim(),
+            telefone: soNumeros(document.getElementById("telefone").value),
+            email: document.getElementById("email").value.trim().toLowerCase(),
+            senha: document.getElementById("senha").value,
+            endereco: {
+                cep: document.getElementById("cep").value,
+                rua: document.getElementById("rua").value.trim(),
+                numero: document.getElementById("numero").value.trim(),
+                bairro: document.getElementById("bairro").value.trim(),
+                cidade: document.getElementById("cidade").value.trim(),
+                uf: document.getElementById("uf").value.trim().toUpperCase(),
+                complemento: document.getElementById("complemento").value.trim()
+            }
+        };
+ 
+        if (usuario.telefone.length < 10) {
+            mensagem.textContent = "Digite um telefone válido com DDD.";
+            return;
+        }
+ 
+        var usuarios = lerUsuarios();
+        var jaExiste = usuarios.some(function (u) {
+            return u.email === usuario.email || u.telefone === usuario.telefone;
+        });
+        if (jaExiste) {
+            mensagem.textContent = "Já existe uma conta com esse e-mail ou telefone. Use a aba Entrar.";
+            return;
+        }
+ 
+        usuarios.push(usuario);
+        localStorage.setItem("usuarios", JSON.stringify(usuarios));
+        localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
+ 
+        window.location.href = PAGINA_CARDAPIO;
+    });
+ 
+    // LOGIN
+    formLogin.addEventListener("submit", function (e) {
+        e.preventDefault();
+ 
+        var id = document.getElementById("login-id").value.trim().toLowerCase();
+        var idNumeros = soNumeros(id);
+        var senha = document.getElementById("login-senha").value;
+ 
+        var achado = lerUsuarios().filter(function (u) {
+            var confere = u.email === id || (idNumeros && u.telefone === idNumeros);
+            return confere && u.senha === senha;
+        })[0];
+ 
+        if (!achado) {
+            mensagem.textContent = "Telefone/e-mail ou senha incorretos.";
+            return;
+        }
+ 
+        localStorage.setItem("usuarioLogado", JSON.stringify(achado));
+        window.location.href = PAGINA_CARDAPIO;
+    });
+</script>
+ 
+</body>
+</html>
+
+

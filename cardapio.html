@@ -1,155 +1,440 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
+ 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cardápio VIP Lanches</title>
     <link rel="stylesheet" href="./style.css">
+ 
+    <!-- ESTILO DO CARRINHO -->
+    <style>
+        body { padding-bottom: 80px; }
+ 
+        .btn-add {
+            display: block;
+            margin: 10px auto 0;
+            padding: 10px 18px;
+            border: none;
+            border-radius: 30px;
+            background: #ffcf58;
+            color: #2a0000;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .btn-add:hover { background: #ffd978; }
+ 
+        #barra-carrinho {
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            background: #ffcf58;
+            color: #2a0000;
+            padding: 14px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1000;
+        }
+ 
+        #painel {
+            position: fixed;
+            top: 0; right: 0; bottom: 0;
+            width: 100%;
+            max-width: 420px;
+            background: #1c0000;
+            color: #f4e6da;
+            border-left: 1px solid #ffcf58;
+            padding: 20px;
+            overflow-y: auto;
+            transform: translateX(100%);
+            transition: transform 0.25s;
+            z-index: 2000;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #painel.aberto { transform: translateX(0); }
+        #painel h2 { color: #ffcf58; margin-bottom: 14px; }
+ 
+        .fechar {
+            background: transparent; border: none; color: #f4e6da;
+            font-size: 14px; cursor: pointer; margin-bottom: 10px;
+        }
+ 
+        .linha-carrinho {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 0;
+            border-bottom: 1px solid #5a2a2a;
+            font-size: 14px;
+        }
+ 
+        .qtd button {
+            width: 28px; height: 28px;
+            border: none; border-radius: 50%;
+            background: #ffcf58; color: #2a0000;
+            font-weight: bold; cursor: pointer;
+        }
+        .qtd span { display: inline-block; min-width: 24px; text-align: center; }
+ 
+        .total { font-size: 20px; font-weight: bold; margin: 16px 0; color: #ffcf58; }
+ 
+        #painel label { display: block; font-size: 13px; margin: 12px 0 4px; }
+        #painel select, #painel textarea {
+            width: 100%; padding: 10px; border-radius: 8px;
+            border: 1px solid #5a2a2a; background: #fff7ee; color: #222; font-size: 14px;
+        }
+ 
+        .endereco-box {
+            background: rgba(255, 255, 255, 0.07);
+            border-radius: 8px; padding: 10px; font-size: 13px; margin-top: 6px;
+        }
+ 
+        #finalizar {
+            width: 100%; margin-top: 18px; padding: 14px;
+            border: none; border-radius: 30px;
+            background: #ffcf58; color: #2a0000;
+            font-weight: bold; font-size: 15px; cursor: pointer;
+        }
+ 
+        #vazio { text-align: center; padding: 30px 0; }
+    </style>
 </head>
-
+ 
 <body>
     <header>
-
+ 
         <!-- LOGO DA VIP LANCHES -->
         <a href="viplanche.html" class="logo">
             <img src="imagens/viplanche.jpg" alt="Logo VIP Lanches">
         </a>
-
+ 
         <!-- MENU -->
         <nav class="menu">
             <a href="viplanche.html">Início</a>
             <a href="cardapio.html" class="ativo">CARDÁPIO</a>
             <a href="sobre-nos.html">Sobre nós</a>
-            <a href="contato">Contato</a>
+            <a href="contato.html">Contato</a>
         </nav>
-
-        <!-- BOTÃO DE PEDIDO -->
-        <a href="#cardapio" class="botao-pedido">
+ 
+        <!-- BOTÃO DE PEDIDO (abre o carrinho) -->
+        <a href="peçaagora.html" class="botao-pedido" id="botao-pedido">
             <span class="icone-entrega">🛵</span>
             PEÇA AGORA
         </a>
-
+ 
     </header>
-
+ 
     <section class="conteudo">
         <h1>Opções tradicionais</h1>
-
+ 
         <h2>Hambúrgueres</h2>
     </section>
-
+ 
     <div class="cardapio">
-
+ 
         <div class="cardapio-item">
             <h3>VIP Burger Classic - R$ 29,99</h3>
             <img src="imagens/classic.jpg" alt="VIP Burger Classic" width="200">
             <h5>1x burguer 100g, fatia de cheddar</h5>
         </div>
-
+ 
         <div class="cardapio-item">
             <h3>VIP Gourmet - R$ 39,99</h3>
             <img src="imagens/gourmet.jpg" alt="VIP Gourmet" width="200">
             <h5>1x burguer 100g, fatias de bacon, catupiry, ovo e cheddar</h5>
         </div>
-
+ 
         <div class="cardapio-item">
             <h3>VIP Batata - R$ 34,99</h3>
             <img src="imagens/batata.jpg" alt="VIP Batata" width="200">
             <h5>2x burguer 100g, fatia de cheddar, batata frita, alface e tomate</h5>
         </div>
-
+ 
         <div class="cardapio-item">
             <h3>VIP Catupiry - R$ 30,99</h3>
             <img src="imagens/catupiry.jpg" alt="VIP Catupiry" width="200">
             <h5>2x burguer 100g, catupiry, fatias de bacon, tomate</h5>
         </div>
-
+ 
     </div>
-
+ 
     <br>
-
+ 
     <div class="cardapio">
-
+ 
         <div class="cardapio-item">
             <h3>VIP Bacon - R$ 37,99</h3>
             <img src="imagens/bacon.jpg" alt="VIP Bacon" width="200">
             <h5>1x burguer 100g, fatias de bacon, fatias de cheddar</h5>
         </div>
-
+ 
         <div class="cardapio-item">
             <h3>VIP Duplo Burger - R$ 38,99</h3>
             <img src="imagens/duplo.jpg" alt="VIP Duplo Burger" width="200">
             <h5>2x burguer 200g, fatias de cheddar, tomate e cebola roxa</h5>
         </div>
-
+ 
         <div class="cardapio-item">
             <h3>VIP Cheddar - R$ 31,99</h3>
             <img src="imagens/cheddar.jpg" alt="VIP Cheddar" width="200">
             <h5>1x burguer 100g, fatia de cheddar, bacon em cubos, barbecue</h5>
         </div>
-
+ 
         <div class="cardapio-item">
             <h3>VIP Salada - R$ 24,99</h3>
             <img src="imagens/salada.jpg" alt="VIP Salada" width="200">
             <h5>1x burguer 100g, bacon em cubos, cheddar derretido, alface</h5>
         </div>
-
+ 
     </div>
-
+ 
     <section class="conteudo">
         <h2>Opções de bebidas</h2>
     </section>
-
+ 
     <div class="cardapio">
-
+ 
         <div class="cardapio-item">
             <h3>Coca-Cola - R$ 5,99</h3>
             <img src="imagens/coca.jpg" alt="Coca-Cola" width="120">
         </div>
-
+ 
         <div class="cardapio-item">
             <h3>Pepsi - R$ 4,99</h3>
             <img src="imagens/pepsi.jpg" alt="Pepsi" width="120">
         </div>
-
+ 
         <div class="cardapio-item">
             <h3>Fanta Laranja - R$ 5,99</h3>
             <img src="imagens/fanta-laranja.jpg" alt="Fanta Laranja" width="120">
         </div>
-
+ 
         <div class="cardapio-item">
             <h3>Chopp - R$ 12,99</h3>
             <img src="imagens/chopp.jpg" alt="Chopp" width="120">
         </div>
-
+ 
     </div>
-
+ 
     <br>
-
+ 
     <div class="cardapio">
-
+ 
         <div class="cardapio-item">
             <h3>Coca-Cola Zero - R$ 5,99</h3>
             <img src="imagens/coca-zero.jpg" alt="Coca-Cola Zero" width="120">
         </div>
-
+ 
         <div class="cardapio-item">
             <h3>Guaraná - R$ 4,99</h3>
             <img src="imagens/guarana.jpg" alt="Guaraná" width="120">
         </div>
-
+ 
         <div class="cardapio-item">
             <h3>Fanta Uva - R$ 5,99</h3>
             <img src="imagens/fanta-uva.jpg" alt="Fanta Uva" width="120">
         </div>
-
+ 
         <div class="cardapio-item">
             <h3>Monster - R$ 10,99</h3>
             <img src="imagens/monster.jpg" alt="Monster" width="120">
         </div>
-
+ 
     </div>
-
+ 
+    <!-- BARRA FIXA DO CARRINHO -->
+    <div id="barra-carrinho">
+        <span id="resumo">🛒 Carrinho vazio</span>
+        <span>VER CARRINHO &rarr;</span>
+    </div>
+ 
+    <!-- PAINEL DO CARRINHO -->
+    <aside id="painel">
+        <button class="fechar" id="fechar">&larr; Continuar escolhendo</button>
+        <h2>Seu pedido</h2>
+ 
+        <div id="lista"></div>
+ 
+        <div class="total">Total: <span id="total">R$ 0,00</span></div>
+ 
+        <label>Entregar em:</label>
+        <div class="endereco-box" id="endereco"></div>
+ 
+        <label for="pagamento">Forma de pagamento</label>
+        <select id="pagamento">
+            <option>Pix</option>
+            <option>Cartão na entrega</option>
+            <option>Dinheiro</option>
+        </select>
+ 
+        <label for="obs">Observações (ex: sem cebola)</label>
+        <textarea id="obs" rows="3"></textarea>
+ 
+        <button id="finalizar">FINALIZAR PEDIDO NO WHATSAPP</button>
+    </aside>
+ 
+    <script>
+        // ====== CONFIGURE AQUI ======
+        var WHATSAPP = "5511999999999";      // 55 + DDD + número da lanchonete
+        var PAGINA_LOGIN = "peçaagora.html"; // sua tela de login/cadastro
+        // =============================
+ 
+        var carrinho = {};   // { "Nome do lanche": { preco: 29.99, qtd: 2 } }
+ 
+        function dinheiro(v) {
+            return "R$ " + v.toFixed(2).replace(".", ",");
+        }
+ 
+        // Carrinho fica salvo no navegador (não perde ao trocar de página)
+        try { carrinho = JSON.parse(localStorage.getItem("carrinhoVIP")) || {}; } catch (e) { carrinho = {}; }
+ 
+        function salvar() {
+            localStorage.setItem("carrinhoVIP", JSON.stringify(carrinho));
+        }
+ 
+        // Cliente logado (pode ser nulo)
+        var usuario = null;
+        try { usuario = JSON.parse(localStorage.getItem("usuarioLogado")); } catch (e) {}
+ 
+        // Endereço no painel
+        var boxEndereco = document.getElementById("endereco");
+        if (usuario) {
+            var e = usuario.endereco;
+            boxEndereco.innerHTML =
+                e.rua + ", " + e.numero + (e.complemento ? " - " + e.complemento : "") + "<br>" +
+                e.bairro + " - " + e.cidade + "/" + e.uf + "<br>CEP " + e.cep;
+        } else {
+            boxEndereco.innerHTML = 'Você ainda não entrou. <a href="' + PAGINA_LOGIN +
+                '" style="color:#ffcf58">Entrar ou cadastrar</a>';
+        }
+ 
+        // Coloca o botão "ADICIONAR" em cada item lendo o <h3> ("Nome - R$ 29,99")
+        document.querySelectorAll(".cardapio-item").forEach(function (item) {
+            var titulo = item.querySelector("h3").textContent;
+            var partes = titulo.split(" - R$");
+            if (partes.length < 2) return;
+ 
+            var nome = partes[0].trim();
+            var preco = parseFloat(partes[1].trim().replace(",", "."));
+ 
+            var btn = document.createElement("button");
+            btn.className = "btn-add";
+            btn.textContent = "+ ADICIONAR";
+            btn.addEventListener("click", function () {
+                if (!carrinho[nome]) carrinho[nome] = { preco: preco, qtd: 0 };
+                carrinho[nome].qtd++;
+                atualizar();
+            });
+            item.appendChild(btn);
+        });
+ 
+        function mudar(nome, delta) {
+            carrinho[nome].qtd += delta;
+            if (carrinho[nome].qtd <= 0) delete carrinho[nome];
+            atualizar();
+        }
+ 
+        function atualizar() {
+            var total = 0, qtdTotal = 0;
+            var lista = document.getElementById("lista");
+            lista.innerHTML = "";
+ 
+            Object.keys(carrinho).forEach(function (nome) {
+                var it = carrinho[nome];
+                var sub = it.preco * it.qtd;
+                total += sub;
+                qtdTotal += it.qtd;
+ 
+                var linha = document.createElement("div");
+                linha.className = "linha-carrinho";
+                linha.innerHTML =
+                    "<div>" + nome + "<br><small>" + dinheiro(sub) + "</small></div>" +
+                    '<div class="qtd"><button>-</button><span>' + it.qtd + "</span><button>+</button></div>";
+ 
+                var botoes = linha.querySelectorAll("button");
+                botoes[0].onclick = function () { mudar(nome, -1); };
+                botoes[1].onclick = function () { mudar(nome, 1); };
+                lista.appendChild(linha);
+            });
+ 
+            if (qtdTotal === 0) lista.innerHTML = '<p id="vazio">Seu carrinho está vazio.</p>';
+ 
+            document.getElementById("total").textContent = dinheiro(total);
+            document.getElementById("resumo").textContent = qtdTotal
+                ? "🛒 " + qtdTotal + (qtdTotal > 1 ? " itens" : " item") + " - " + dinheiro(total)
+                : "🛒 Carrinho vazio";
+ 
+            salvar();
+        }
+ 
+        // Abrir / fechar painel
+        function abrirPainel() { document.getElementById("painel").classList.add("aberto"); }
+        document.getElementById("barra-carrinho").onclick = abrirPainel;
+        document.getElementById("fechar").onclick = function () {
+            document.getElementById("painel").classList.remove("aberto");
+        };
+ 
+        // Botão "PEÇA AGORA" do topo: abre o carrinho (ou o login, se não entrou)
+        document.getElementById("botao-pedido").addEventListener("click", function (ev) {
+            if (usuario) {
+                ev.preventDefault();
+                abrirPainel();
+            }
+        });
+ 
+        // Finalizar pedido
+        document.getElementById("finalizar").onclick = function () {
+            var nomes = Object.keys(carrinho);
+            if (nomes.length === 0) { alert("Adicione pelo menos um item ao carrinho."); return; }
+ 
+            if (!usuario) {
+                alert("Faça login ou cadastro para finalizar o pedido. Seu carrinho será mantido.");
+                window.location.href = PAGINA_LOGIN;
+                return;
+            }
+ 
+            var total = 0;
+            var texto = "*NOVO PEDIDO - VIP Lanches*\n\n";
+            texto += "*Cliente:* " + usuario.nome + "\n";
+            texto += "*Telefone:* " + usuario.telefone + "\n\n";
+            texto += "*Itens:*\n";
+ 
+            nomes.forEach(function (nome) {
+                var it = carrinho[nome];
+                total += it.preco * it.qtd;
+                texto += it.qtd + "x " + nome + " - " + dinheiro(it.preco * it.qtd) + "\n";
+            });
+ 
+            texto += "\n*Total:* " + dinheiro(total) + "\n";
+            texto += "*Pagamento:* " + document.getElementById("pagamento").value + "\n";
+ 
+            var obs = document.getElementById("obs").value.trim();
+            if (obs) texto += "*Obs:* " + obs + "\n";
+ 
+            var en = usuario.endereco;
+            texto += "\n*Endereço:*\n" + en.rua + ", " + en.numero +
+                     (en.complemento ? " - " + en.complemento : "") + "\n" +
+                     en.bairro + " - " + en.cidade + "/" + en.uf + "\nCEP " + en.cep;
+ 
+            window.open("https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(texto), "_blank");
+ 
+            carrinho = {};
+            atualizar();
+            document.getElementById("painel").classList.remove("aberto");
+        };
+ 
+        atualizar();
+    </script>
+ 
 </body>
-
+ 
 </html>
+
+
+
+           
+    
