@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -99,11 +98,9 @@ nav a.ativo {
     width: 100%;
 
     background-image:
-        linear-gradient(
-            90deg,
+        linear-gradient(90deg,
             rgba(30, 0, 0, 0.15),
-            rgba(30, 0, 0, 0.05)
-        ),
+            rgba(30, 0, 0, 0.05)),
         url("banner-vip.png");
 
     background-size: cover;
@@ -189,8 +186,8 @@ nav a.ativo {
     margin: 0;
     padding: 0;
 }
- 
-.conteiner-duplo > .texto-sobre {
+
+.conteiner-duplo>.texto-sobre {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -207,18 +204,18 @@ nav a.ativo {
     margin-left: auto;
 }
 
- 
+
 .conteiner-duplo h1 {
     margin: 0;
 }
- 
+
 .imagem-lanche,
 .imagem-lanche a {
     display: block;
     margin: 0;
     padding: 0;
 }
- 
+
 .imagem-lanche img {
     display: block;
     width: 100%;
@@ -227,9 +224,9 @@ nav a.ativo {
     margin: 0;
 }
 
- .texto-sobre {
+.texto-sobre {
     flex: 1;
-    
+
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -237,7 +234,7 @@ nav a.ativo {
     gap: 25px;
     color: white;
 }
- 
+
 .texto-sobre h1 {
     font-family: 'Cormorant Garamond', serif;
     font-size: 110px;
@@ -245,14 +242,14 @@ nav a.ativo {
     color: transparent;
     -webkit-text-stroke: 2px white;
 }
- 
+
 .texto-sobre .horarios {
     font-size: 32px;
     font-weight: bold;
     line-height: 1.5;
     margin: 0;
 }
- 
+
 .texto-sobre .frase {
     font-family: 'Cormorant Garamond', serif;
     font-size: 38px;
@@ -260,7 +257,7 @@ nav a.ativo {
     max-width: 600px;
     margin: 0;
 }
- 
+
 .texto-sobre .botao-endereco {
     display: inline-block;
     padding: 22px 50px;
@@ -338,14 +335,14 @@ nav a.ativo {
 .contato {
     width: 100%;
 }
- 
+
 .contato .foto-contato {
     width: 100vw;
     height: 500px;
     object-fit: cover;
     display: block;
 }
- 
+
 .info-contato {
     display: flex;
     justify-content: space-around;
@@ -353,7 +350,7 @@ nav a.ativo {
     color: white;
     padding: 30px 20px;
 }
- 
+
 .info-contato h3 {
     border-bottom: 1px solid white;
     padding-bottom: 5px;
@@ -379,18 +376,18 @@ nav a.ativo {
     color: #fff;
     padding: 30px 40px;
 }
- 
+
 .faixa-contato h2 {
     font-size: 48px;
     margin-bottom: 15px;
 }
- 
+
 .faixa-contato h3 {
     border-bottom: 1px solid #fff;
     padding-bottom: 5px;
     margin-bottom: 10px;
 }
- 
+
 .faixa-contato .centro {
     text-align: center;
 }
@@ -400,7 +397,7 @@ nav a.ativo {
     height: auto;
     display: block;
 }
- 
+
 .topo-container {
     position: sticky;
     top: 0;
@@ -428,7 +425,7 @@ nav a.ativo {
     transition: width 0.3s ease;
 }
 
-.menu a:hover::after{
+.menu a:hover::after {
     width: 100%;
 }
 
@@ -437,7 +434,81 @@ nav a.ativo {
     transition: none !important;
 }
 
-.menu a.ativo:hover ::after {  
+.menu a.ativo:hover ::after {
     width: 100% !important;
     transition: none !important;
+}
+
+/* AJUSTE DA PÁGINA INICIAL PRO CELULAR */
+
+@media (max-width: 800px) {
+    .banner img {
+        width: 90% !important;
+        max-width: 320px;
+        height: auto !important;
+        display: block;
+        margin: 20px auto;
+        object-fit: contain;
+    }
+}
+
+/* AJUSTE DÁ PÁGINA SOBRE NÓS PRO CELULAR */
+
+@media (max-width: 768px) {
+    .conteiner-duplo  {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        width: 100% !important;
+        padding: 20px !important;
+        box-sizing: border-box !important;
+    }
+    
+    
+    .texto-sobre {
+        display: contents !important;
+    }
+
+    .conteiner-duplo h1 {
+        order: 1 !important;
+        font-size: 60px !important;
+        margin: 10px 0 20px 0 !important;
+        position: static !important;
+        width: 100% !important;
+    }
+
+    .conteiner-duplo > a {
+        order: 2 !important;
+        position: static !important;
+        transform: none !important;
+        display: block !important;
+        width: 85% !important;
+        max-width: 260px !important;
+        margin: 0 auto 20px auto !important;
+    }
+
+    .sobre-nos {
+        width: 100% !important;
+        height: auto;
+    }
+    
+    .conteiner-duplo .horarios {
+        order: 3 !important;
+        width: 100% !important;
+        margin: 10px 0 !important;
+    }
+
+    
+    .conteiner-duplo .frase {
+        order: 4 !important;
+        width: 100% !important;
+        margin: 10px 0 !important;
+    }
+
+    .conteiner-duplo .botao-endereco {
+        order: 5 !important;
+        display: inline-block !important;
+        margin-top: 15px !important;
+    }
 }
